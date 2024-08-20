@@ -2,7 +2,11 @@
 	import { fly } from "svelte/transition";
 	import { Plus, Minus } from "lucide-svelte";
 	//@ts-ignore
-	let { value: count = $bindable(0) }: { value: number } = $props();
+	let {
+		value: count = $bindable(0),
+		min = 0,
+		max = 999,
+	}: { value: number; min?: number; max?: number } = $props();
 	let prevCount: number = $state(count);
 
 	let prevUnits = $derived(prevCount % 10);
@@ -13,13 +17,13 @@
 	let hundreds = $derived(Math.floor(count / 100) % 10);
 
 	function add() {
-		if (count < 999) {
+		if (count < 999 && count < max) {
 			prevCount = count;
 			count += 1; // your number
 		}
 	}
 	function subtract() {
-		if (count > 0) {
+		if (count > 0 && count > min) {
 			prevCount = count;
 			count -= 1;
 		}
@@ -28,7 +32,7 @@
 
 <div class="flex flex-row items-center justify-center gap-2">
 	<button
-		disabled={count <= 0}
+		disabled={count <= 0 || count <= min}
 		class="rounded-full border border-slate-100/10 p-2 hover:border-slate-100/20 disabled:opacity-50"
 		onclick={subtract}><Minus class="h-4 w-4 " /></button
 	>
@@ -87,7 +91,7 @@
 		</span>
 	</div>
 	<button
-		disabled={count >= 999}
+		disabled={count >= 999 || count >= max}
 		onclick={add}
 		class="rounded-full border border-slate-100/10 p-2 hover:border-slate-100/20 disabled:opacity-50"
 		><Plus class="h-4 w-4 " /></button
