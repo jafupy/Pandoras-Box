@@ -1,58 +1,20 @@
-# create-svelte
+# Pandora's Box
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Pandora's Box is a set of experimental animated Svelte UI components that I made for my site.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## How to use
 
-## Creating a project
+1.  Set up your svelte project if you haven't already
+2.  Install (Dependancies)\[#Dependancies\] if you haven't already
+3.  Copy / Paste your desired components somewhere in your project where you can easily access them. Eg. lib/components
+4.  Customise. By default the color scheme is Slate. Change it to by the scheme you use.
+5.  Use & Enjoy
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Dependancies
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Tailwind
+- Svelte (obviously)
+- Svelte/transition
+- Lucide/Svelte\*
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
-
-## Building
-
-To build your library:
-
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+\\\* Lucide Svelte is only necessary if you don't have an icon pack installed. If you to, update all the components you take from here with your icon pack of choice.
